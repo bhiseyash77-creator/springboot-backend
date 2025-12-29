@@ -1,11 +1,11 @@
 package com.example.yashbhise.Repository;
 
-import com.example.yashbhise.Model.User;
+import com.example.yashbhise.Model.Userapp;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<Userapp, Integer> {
 
-    Optional<User> findByUsernameAndPassword(String username, String password);
+    Optional<Userapp> findByUsernameAndPassword(String username, String password);
 }

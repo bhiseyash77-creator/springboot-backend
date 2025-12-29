@@ -1,6 +1,6 @@
 package com.example.yashbhise.ServiceImp;
 
-import com.example.yashbhise.Model.User;
+import com.example.yashbhise.Model.Userapp;
 import com.example.yashbhise.Repository.UserRepository;
 import com.example.yashbhise.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class UserImpl  implements UserService {
     private UserRepository userRepo;
 
     @Override
-    public User adduser(User user) {
+    public Userapp adduser(Userapp user) {
         return userRepo.save(user);
     }
 

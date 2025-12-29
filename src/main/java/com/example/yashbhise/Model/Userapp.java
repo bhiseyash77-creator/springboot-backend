@@ -3,7 +3,7 @@ package com.example.yashbhise.Model;
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+public class Userapp {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,9 +14,9 @@ public class User {
 
     private String password;
 
-    public User() {}
+    public Userapp() {}
 
-    public User(String username, String password) {
+    public Userapp(String username, String password) {
         this.username = username;
         this.password = password;
     }

@@ -1,9 +1,9 @@
 package com.example.yashbhise.Service;
 
-import com.example.yashbhise.Model.User;
+import com.example.yashbhise.Model.Userapp;
 
 public interface UserService {
 
-    User adduser(User user );
+    Userapp adduser(Userapp user );
     boolean loginUser(String username, String password);
 }

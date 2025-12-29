@@ -1,6 +1,6 @@
 package com.example.yashbhise.Controller;
 
-import com.example.yashbhise.Model.User;
+import com.example.yashbhise.Model.Userapp;
 import com.example.yashbhise.Service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +18,12 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public User register(@RequestBody User user) {
+    public Userapp register(@RequestBody Userapp user) {
         return userService.adduser(user);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody User user) {
+    public ResponseEntity<String> login(@RequestBody Userapp user) {
 
         boolean success = userService.loginUser(
                 user.getUsername(),
