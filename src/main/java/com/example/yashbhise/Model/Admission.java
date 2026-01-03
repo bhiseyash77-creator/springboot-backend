@@ -17,7 +17,7 @@ public class Admission {
     private String qrToken;
 
     @Lob
-    @JsonIgnore
+
     private byte[] screenshot;
 
     public Long getId() {
