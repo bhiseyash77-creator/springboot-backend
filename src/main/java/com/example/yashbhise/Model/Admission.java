@@ -1,5 +1,6 @@
 package com.example.yashbhise.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +17,7 @@ public class Admission {
     private String qrToken;
 
     @Lob
+    @JsonIgnore
     private byte[] screenshot;
 
     public Long getId() {
