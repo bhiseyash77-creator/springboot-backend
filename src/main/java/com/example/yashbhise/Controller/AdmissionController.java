@@ -60,32 +60,66 @@ public class AdmissionController {
     }
 
 
-    @GetMapping("/pending")
-    public List<Map<String, Object>> pendingAdmissions() {
+//    @GetMapping("/pending")
+//    public List<Map<String, Object>> pendingAdmissions() {
+//
+//        List<Admission> list = repo.findByStatus("Pending");
+//        List<Map<String, Object>> response = new ArrayList<>();
+//
+//        for (Admission a : list) {
+//            Map<String, Object> map = new HashMap<>();
+//            map.put("id", a.getId());
+//            map.put("name", a.getName());
+//            map.put("email", a.getEmail());
+//            map.put("mobile", a.getMobile());
+//            map.put("course", a.getCourse());
+//            map.put("college", a.getCollege());
+//            map.put("education", a.getEducation());
+//            map.put("passoutYear", a.getPassoutYear());
+//            map.put("utrNo", a.getUtrNo());
+//            map.put("status", a.getStatus());
+//
+//
+//            map.put("screenshot", Base64.getEncoder().encodeToString(a.getScreenshot()));
+//
+//            response.add(map);
+//        }
+//        return response;
+//    }
+@GetMapping("/pending")
+public List<Map<String, Object>> pendingAdmissions() {
 
-        List<Admission> list = repo.findByStatus("Pending");
-        List<Map<String, Object>> response = new ArrayList<>();
+    List<Admission> list = repo.findByStatus("Pending");
+    List<Map<String, Object>> response = new ArrayList<>();
 
-        for (Admission a : list) {
-            Map<String, Object> map = new HashMap<>();
-            map.put("id", a.getId());
-            map.put("name", a.getName());
-            map.put("email", a.getEmail());
-            map.put("mobile", a.getMobile());
-            map.put("course", a.getCourse());
-            map.put("college", a.getCollege());
-            map.put("education", a.getEducation());
-            map.put("passoutYear", a.getPassoutYear());
-            map.put("utrNo", a.getUtrNo());
-            map.put("status", a.getStatus());
+    for (Admission a : list) {
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("id", a.getId());
+        map.put("name", a.getName());
+        map.put("email", a.getEmail());
+        map.put("mobile", a.getMobile());
+        map.put("course", a.getCourse());
+        map.put("college", a.getCollege());
+        map.put("education", a.getEducation());
+        map.put("passoutYear", a.getPassoutYear());
+        map.put("utrNo", a.getUtrNo());
+        map.put("status", a.getStatus());
 
 
-            map.put("screenshot", Base64.getEncoder().encodeToString(a.getScreenshot()));
-
-            response.add(map);
+        if (a.getScreenshot() != null && a.getScreenshot().length > 0) {
+            map.put(
+                    "screenshot",
+                    Base64.getEncoder().encodeToString(a.getScreenshot())
+            );
+        } else {
+            map.put("screenshot", null);
         }
-        return response;
+
+        response.add(map);
     }
+    return response;
+}
 
 
     @PutMapping("/status/{id}")
