@@ -27,10 +27,10 @@ public class Admission {
     private String status;
     private String qrToken;
 
-    @Lob
-     @Column(columnDefinition = "BYTEA")
-    @JsonIgnore
-    private byte[] screenshot;
+//    @Lob
+//     @Column(columnDefinition = "BYTEA")
+//    @JsonIgnore
+//    private byte[] screenshot;
 
 
     public Long getId() {
@@ -129,11 +129,11 @@ public class Admission {
         this.qrToken = qrToken;
     }
 
-    public byte[] getScreenshot() {
-        return screenshot;
-    }
-
-    public void setScreenshot(byte[] screenshot) {
-        this.screenshot = screenshot;
-    }
+//    public byte[] getScreenshot() {
+//        return screenshot;
+//    }
+//
+//    public void setScreenshot(byte[] screenshot) {
+//        this.screenshot = screenshot;
+//    }
 }

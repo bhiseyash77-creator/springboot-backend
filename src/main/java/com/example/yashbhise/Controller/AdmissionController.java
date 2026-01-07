@@ -31,8 +31,8 @@ public class AdmissionController {
             @RequestParam String passoutYear,
             @RequestParam String address,
             @RequestParam String utrNo,
-            @RequestParam String qrToken,
-            @RequestParam MultipartFile screenshot
+            @RequestParam String qrToken
+           // @RequestParam MultipartFile screenshot
     ) {
         try {
             Admission a = new Admission();
@@ -47,13 +47,13 @@ public class AdmissionController {
             a.setUtrNo(utrNo);
             a.setQrToken(qrToken);
             a.setStatus("Pending");
-            a.setScreenshot(screenshot.getBytes());
+         //   a.setScreenshot(screenshot.getBytes());
 
             repo.save(a);
             return ResponseEntity.ok("Admission saved successfully");
 
-        } catch (IOException e) {
-            return ResponseEntity.badRequest().body("Screenshot upload failed");
+//        } catch (IOException e) {
+//            return ResponseEntity.badRequest().body("Screenshot upload failed");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Server error");
         }
@@ -107,14 +107,14 @@ public List<Map<String, Object>> pendingAdmissions() {
         map.put("status", a.getStatus());
 
 
-        if (a.getScreenshot() != null && a.getScreenshot().length > 0) {
-            map.put(
-                    "screenshot",
-                    Base64.getEncoder().encodeToString(a.getScreenshot())
-            );
-        } else {
-            map.put("screenshot", null);
-        }
+//        if (a.getScreenshot() != null && a.getScreenshot().length > 0) {
+//            map.put(
+//                    "screenshot",
+//                    Base64.getEncoder().encodeToString(a.getScreenshot())
+//            );
+//        } else {
+//            map.put("screenshot", null);
+//        }
 
         response.add(map);
     }
